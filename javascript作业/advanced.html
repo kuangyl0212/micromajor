@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js</title>
+</head>
+<body>
+	<script>
+		//第一题
+		var type = function(obj) {
+			return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase();
+		}
+		var t1 = type(1) // t==="number"
+		var t2 = type(new Number(1)) // t==="number"
+		var t3= type("abc") // t==="string"
+		var t4 = type(new String("abc")) // t==="string"
+		var t5 = type(true) // t==="boolean"
+		var t6 = type(undefined) // t==="undefined"
+		var t7 = type(null) // t==="null"
+		var t8 = type({}) // t==="object"
+		var t9 = type([]) // t==="array"
+		var t10 = type(new Date) // t==="date"
+		var t11 = type(/\d/) // t==="regexp"
+		var t12 = type(function(){}) // t==="function"
+		var arr = [t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12];
+		console.log(arr);
+		//第二题
+		if (typeof Object.create != 'function') {
+			Object.create = function() {
+				function F() {};
+				F.prototype = obj;
+				return new F();
+			}
+		}
+		//第三题
+
+		//第四题
+		var fibonacci = function(n) {
+			var arr = [0, 1]
+			for (var i = 2; i < n; i++) {
+				arr[i] = arr[i-2] + arr[i-1];
+			}
+			return arr[n-1];
+		} 
+		var a = fibonacci(5);
+	</script>
+</body>
+</html>
